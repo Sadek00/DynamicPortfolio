@@ -25,7 +25,6 @@
                 border-radius: 2px;
                 font-weight: bold;"><i class="fa fa-plus"></i>Add</a></div> 
             </div>
-          </br>
                 <?php
                       if (isset($_SESSION['Delete'])) {?>
                         <div class="alert alert-danger">
@@ -36,7 +35,7 @@
                         ?>                             
                       </span>
                         </div>
-                      <?php
+                      <?php }
 
                       if (isset($_SESSION['Update'])) {?>
                         <div class="alert alert-success">

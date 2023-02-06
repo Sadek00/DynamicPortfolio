@@ -1,5 +1,10 @@
 <?php 
   include 'inc/header.php';
+  $id=$_GET['id'];
+  $count= "SELECT * FROM setting WHERE id=$id";
+  $query_count=mysqli_query($db, $count);
+  $count_assoc=mysqli_fetch_assoc($query_count);
+
 ?>
 <!-- ########## START: MAIN PANEL ########## -->
 <div class="sl-mainpanel">
@@ -22,13 +27,14 @@
               <div class="card pd-2 pd-sm-40 form-layout form-layout-4">
               <!-- ##### Section Title ######  -->
                 <h6 class="card-body-title text-center">Add Setting Content</h6>
+                <input type="hidden" name="id" value="<?= $count_assoc['id']?>">
                
                   <div class="row mg-t-20">
                      <!-- Website title  -->
                       <div class="col-sm-4 mg-t-10 mg-sm-t-0">
                       <label class="form-control-label">Website Title: <span class="tx-danger">*</span></label>
                     
-                        <input type="text" class="form-control" name="websiteTitle">
+                        <input type="text" class="form-control" value="<?= $count_assoc['websiteTitle']?>" name="websiteTitle">
                         <p style="color: red">  
                         <?php 
                           if(isset($_SESSION['websiteTitle_error'])):
@@ -41,7 +47,7 @@
                   <!-- Footer copyright text  -->
                   <div class="col-sm-4 mg-t-10 mg-sm-t-0">
                     <label class="form-control-label">Copyright Text: <span class="tx-danger">*</span></label>
-                    <input type="text" class="form-control" name="footerText">
+                    <input type="text" class="form-control" value="<?= $count_assoc['footerText']?>" name="footerText">
                       <p style="color: red">  
                         <?php 
                           if(isset($_SESSION['footerText_error'])):
@@ -54,7 +60,7 @@
                     <!-- Tagline -->
                     <div class="col-sm-4 mg-t-10 mg-sm-t-0">
                     <label class="form-control-label">Tagline: <span class="tx-danger">*</span></label>
-                    <input type="text" class="form-control" name="tagline">
+                    <input type="text" class="form-control" value="<?= $count_assoc['tagline']?>" name="tagline">
                       <p style="color: red">  
                         <?php 
                           if(isset($_SESSION['footerText_error'])):
@@ -70,7 +76,7 @@
                      <!-- Website title  -->
                       <div class="col-sm-4 mg-t-10 mg-sm-t-0">
                       <label class="form-control-label">Office Adress: <span class="tx-danger">*</span></label>
-                        <input type="text" class="form-control" name="office_adress">
+                        <input type="text" class="form-control" value="<?= $count_assoc['office_adress']?>" name="office_adress">
                         <p style="color: red">  
                         <?php 
                           if(isset($_SESSION['websiteTitle_error'])):
@@ -83,7 +89,7 @@
                   <!-- Footer copyright text  -->
                   <div class="col-sm-4 mg-t-10 mg-sm-t-0">
                     <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
-                    <input type="text" class="form-control" name="email">
+                    <input type="text" class="form-control" value="<?= $count_assoc['email']?>" name="email">
                       <p style="color: red">  
                         <?php 
                           if(isset($_SESSION['footerText_error'])):
@@ -96,7 +102,7 @@
                     <!-- Tagline -->
                     <div class="col-sm-4 mg-t-10 mg-sm-t-0">
                     <label class="form-control-label">Phone: <span class="tx-danger">*</span></label>
-                    <input type="text" class="form-control" name="phone">
+                    <input type="text" class="form-control" value="<?= $count_assoc['phone']?>" name="phone">
                       <p style="color: red">  
                         <?php 
                           if(isset($_SESSION['footerText_error'])):
@@ -111,7 +117,7 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="form-control-label">About: <span class="tx-danger">*</span></label>
-                      <textarea class="form-control" type="text" name="about" value=""></textarea>
+                      <textarea class="form-control" type="text" name="about"><?= $count_assoc['about']?></textarea>
                     </div>
                   </div><!-- col-6 -->
 

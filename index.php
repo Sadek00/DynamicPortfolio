@@ -1,10 +1,10 @@
 <?php
-    // session_start();
-    // require_once('database.php');
+    session_start();
+    require_once('database.php');
 
-    // $selectSetting = "SELECT * FROM setting";
-    // $settingQuery = mysqli_query($db_connect, $selectSetting);
-    // $settingAssoc = mysqli_fetch_assoc($settingQuery);
+    $selectSetting = "SELECT * FROM setting";
+    $settingQuery = mysqli_query($db, $selectSetting);
+    $settingAssoc = mysqli_fetch_assoc($settingQuery);
 
 ?>
 <!doctype html>
@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/<?php echo $settingAssoc['favIcon'] ?>">
+    <link rel="shortcut icon" type="image/x-icon" href="Dashboard/uploads/settings/favicon/<?php echo $settingAssoc['favIcon'] ?>">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -56,8 +56,8 @@
                     <div class="col-xl-12">
                         <div class="main-menu">
                             <nav class="navbar navbar-expand-lg">
-                                <a href="index.php" class="navbar-brand logo-sticky-none"><img src="assets/images/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
-                                <a href="index.php" class="navbar-brand s-logo-none"><img src="assets/images/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
+                                <a href="index.php" class="navbar-brand logo-sticky-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
+                                <a href="index.php" class="navbar-brand s-logo-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                                     <span class="navbar-icon"></span>
                                     <span class="navbar-icon"></span>
@@ -121,14 +121,7 @@
     <!-- header-end -->
 
     <!-- main-area -->
-    <main>
-        <?php
-
-        $select = "SELECT * FROM banner";
-        $query = mysqli_query($db_connect, $select);
-        $assoc = mysqli_fetch_assoc($query);
-
-        ?>
+    <main>       
 
         <!-- banner-area -->
         <section id="home" class="banner-area banner-bg fix">
@@ -136,9 +129,9 @@
                 <div class="row align-items-center">
                     <div class="col-xl-7 col-lg-6">
                         <div class="banner-content">
-                            <h6 class="wow fadeInUp" data-wow-delay="0.2s"><?php echo $assoc['subTitle'] ?>!</h6>
-                            <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?php echo $assoc['title'] ?></h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.6s"><?php echo $assoc['summary'] ?></p>
+                            <h6 class="wow fadeInUp" data-wow-delay="0.2s">Hello!</h6>
+                            <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?php echo"I'M".$_SESSION['name'] ?></h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.6s"><?php echo $settingAssoc['tagline'] ?></p>
                             <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                 <?php
                                 $select = " SELECT * FROM socials WHERE status = 'active'";
@@ -184,7 +177,7 @@
                             <h2>About Me</h2>
                         </div>
                         <div class="about-content">
-                            <p><?php echo $assoc['summary'] ?></p>
+                            <p><?php echo $settingAssoc['about'] ?></p>
                             <h3>Education:</h3>
                         </div>
                         <!-- Education Item -->
@@ -386,19 +379,14 @@
                             <span>information</span>
                             <h2>Contact Information</h2>
                         </div>
-                        <?php
-                        // $selectContactInfo = "SELECT * FROM contactInfo";
-                        // $contactQuery = mysqli_query($db_connect, $selectContactInfo);
-                        // $contactInfoAssoc = mysqli_fetch_assoc($contactQuery);
-                        ?>
+                        
                         <div class="contact-content">
-                            <p><?php echo $contactInfoAssoc['summary'] ?></p>
-                            <h5>OFFICE IN <span>SAUDI ARABIA</span></h5>
+                            <h5>OFFICE IN <span>BANGLADESH</span></h5>
                             <div class="contact-list">
                                 <ul>
-                                    <li><i class="fas fa-map-marker"></i><span>Address :</span><?php echo $contactInfoAssoc['address'] ?></li>
-                                    <li><i class="fas fa-headphones"></i><span>Phone :</span><?php echo $contactInfoAssoc['phone'] ?></li>
-                                    <li><i class="fas fa-globe-asia"></i><span>e-mail :</span><?php echo $contactInfoAssoc['email'] ?></li>
+                                    <li><i class="fas fa-map-marker"></i><span>Address :</span><?php echo $sttingAssoc['office_adress'] ?></li>
+                                    <li><i class="fas fa-headphones"></i><span>Phone :</span><?php echo $settingAssoc['phone'] ?></li>
+                                    <li><i class="fas fa-globe-asia"></i><span>e-mail :</span><?php echo $settingAssoc['email'] ?></li>
                                 </ul>
                             </div>
                         </div>

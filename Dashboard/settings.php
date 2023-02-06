@@ -24,6 +24,20 @@ $settingAssoc = mysqli_fetch_assoc($settingQuery);
                     <div class="table bg-light rounded p-4">
                         <div class="table-header text-center">
                             <h2>Website Setting</h2>
+                            <?php if ($settingAssoc['total'] > 0) : ?>
+                              <div class="text-right"><a href="settings-edit.php?id=<?= $dataAssoc['id']?>" style="background-image: linear-gradient(45deg,cyan,blue);
+                                color: white;
+                                padding: 10px 20px;
+                                border-radius: 2px;
+                                font-weight: bold;"><i class="fa fa-plus"></i>Edit Content</a></div> 
+                            <?php else : ?>
+                                <div class="text-right"><a href="settings-add.php" style="background-image: linear-gradient(45deg,cyan,blue);
+                                color: white;
+                                padding: 10px 20px;
+                                border-radius: 2px;
+                                font-weight: bold;"><i class="fa fa-plus"></i>Add Content</a></div>
+                            <?php endif; ?>
+                              </div>
                         </div>
                         <div class="message">
                             <?php if (isset($_SESSION['message'])) : ?>
@@ -42,7 +56,11 @@ $settingAssoc = mysqli_fetch_assoc($settingQuery);
                                     <th>Header Logo</th>
                                     <th>Fav Icon</th>
                                     <th>Copyright Text</th>
-                                    <th style="text-align: center; width: 150px;">Actions</th>
+                                    <th>Tagline</th>
+                                    <th>About</th>
+                                    <th>Ofiice Adress</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>                                   
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,13 +81,11 @@ $settingAssoc = mysqli_fetch_assoc($settingQuery);
                                         <?php endif; ?>
                                     </td>
                                     <td><?php echo $dataAssoc['footerText']; ?></td>
-                                    <td style="text-align: center; width: 150px;">
-                                        <?php if ($settingAssoc['total'] < 1) : ?>
-                                        <a class="btn btn-primary" href="settings-add.php"><i class="fa fa-plus"></i> Add Content<a>
-                                        <?php else : ?>
-                                            <a class="btn btn-primary" href="setting-edit.php">Edit</a>
-                                        <?php endif; ?>
-                                    </td>
+                                    <td><?php echo $dataAssoc['tagline']; ?></td>
+                                    <td><?php echo $dataAssoc['about']; ?></td>
+                                    <td><?php echo $dataAssoc['office_adress']; ?></td>
+                                    <td><?php echo $dataAssoc['email']; ?></td>
+                                    <td><?php echo $dataAssoc['phone']; ?></td>
                                 </tr>
                             </tbody>
                         </table>
