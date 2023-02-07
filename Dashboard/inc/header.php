@@ -97,6 +97,12 @@
             <span class="menu-item-label">Settings</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
+        <a href="education.php" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon fa fa-graduation-cap tx-20"></i>
+            <span class="menu-item-label">Education</span>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
@@ -392,6 +398,7 @@
     <script src="assets/lib/datatables/jquery.dataTables.js"></script>
     <script src="assets/lib/datatables-responsive/dataTables.responsive.js"></script>
     <script src="assets/lib/select2/js/select2.min.js"></script>
+    <script src="assets/lib/parsleyjs/parsley.js"></script>
 
     <script>
       $(function(){

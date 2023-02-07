@@ -1,3 +1,4 @@
+
 <?php 
     session_start();
     require_once '../database.php';
@@ -16,14 +17,16 @@
             if(empty($websiteTitle)){
               $_SESSION['websiteTitle_error'] = "Please Write your Website title.";
               header('location: settings-add.php');
+              die();
             }else{
               $validTitle = $websiteTitle;
             }
 
             // Website Title Validation.
             if(empty($footerText)){
-              $_SESSION['footerText_error'] = "Please Write your Website title.";
+              $_SESSION['footerText_error'] = "Please Write your Copyright text";
               header('location: settings-add.php');
+              die();
             }else{
               $validText = $footerText;
             }

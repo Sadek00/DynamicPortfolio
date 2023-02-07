@@ -18,11 +18,12 @@
                     </span>
                 </div> 
             <?php endif; ?>
-            <form action="settings-post.php" method="POST" enctype="multipart/form-data">
+
+            <form action="settings-post.php" method="POST" enctype="multipart/form-data" data-parsley-validate>
               <div class="card pd-2 pd-sm-40 form-layout form-layout-4">
               <!-- ##### Section Title ######  -->
                 <h6 class="card-body-title text-center">Add Setting Content</h6>
-               
+
                   <div class="row mg-t-20">
                      <!-- Website title  -->
                       <div class="col-sm-4 mg-t-10 mg-sm-t-0">
@@ -80,7 +81,7 @@
                         ?>
                         </p>
                       </div>
-                  <!-- Footer copyright text  -->
+
                   <div class="col-sm-4 mg-t-10 mg-sm-t-0">
                     <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
                     <input type="text" class="form-control" name="email">
@@ -156,6 +157,5 @@
 
 </div><!-- sl-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
-
 
 <?php include 'inc/footer.php' ?>
