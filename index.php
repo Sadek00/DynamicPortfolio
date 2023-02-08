@@ -182,18 +182,18 @@
                         </div>
                         <!-- Education Item -->
                         <?php
-                        $selectData = "SELECT * FROM education WHERE status = 1 ";
-                        $query = mysqli_query($db_connect, $selectData);
+                        $selectData = "SELECT * FROM education WHERE status = 1 ORDER BY year DESC ";
+                        $query = mysqli_query($db, $selectData);
                         ?>
                         <?php foreach ($query as $education) : ?>
                             <div class="education">
-                                <div class="year"><?php echo $education['year'] ?></div>
+                                <div class="year"><?php echo $education['passing_year'] ?></div>
                                 <div class="line"></div>
                                 <div class="location">
-                                    <span><?php echo $education['subject'] ?></span>
+                                    <span><?php echo $education['title'] ?></span>
                                     <div class="progressWrapper">
                                         <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: <?=$education['progress']?>%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>

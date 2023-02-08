@@ -73,8 +73,8 @@
                   <td><?= $value['link']?></td>
                   <td><?= $value['status']?></td>
                   <td>
-                    <a href="user_edit.php?user_iq=<?= $value['id']?>" class="btn btn-primary">Edit</a>
-                    <a href="user_delete.php?user_iq=<?= $value['id']?>" class="btn btn-danger">Delete</a>
+                    <a href="social_edit.php?id=<?= $value['id']?>" class="btn btn-primary">Edit</a>
+                    <a href="user_delete.php?id=<?= $value['id']?>" class="btn btn-danger">Delete</a>
                     <!-- <button data-id="<?= $value['id']?>" class="btn btn-danger UserDelete ">Delete</button> -->
                   </td>
                 </tr>

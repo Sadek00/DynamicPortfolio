@@ -5,6 +5,10 @@
   $select_user="SELECT * FROM user_form WHERE id=$user_id";
   $query_select_user =mysqli_query($db,$select_user);
   $assoc_select_user=mysqli_fetch_assoc($query_select_user);
+
+  //For use the active class in the menu select
+  $exp= explode('/', $_SERVER['PHP_SELF']);
+  $end_exp= end($exp);
 ?>
 
 <!DOCTYPE html>
@@ -67,40 +71,46 @@
 
       <label class="sidebar-label">Navigation</label>
       <div class="sl-sideleft-menu">
-        <a href="index.html" class="sl-menu-link">
+        <a href="dashboard.php" class="sl-menu-link <?=$end_exp=='dashboard.php'?'active':''?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
             <span class="menu-item-label">Dashboard</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="user.php" class="sl-menu-link">
+        <a href="user.php" class="sl-menu-link <?=$end_exp=='user.php'?'active':''?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-person-add tx-20"></i>
             <span class="menu-item-label">User</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="social.php" class="sl-menu-link">
+        <a href="social.php" class="sl-menu-link <?=$end_exp=='social.php'?'active':''?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon fa fa-send tx-20"></i>
             <span class="menu-item-label">Socials</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="services.php" class="sl-menu-link">
+        <a href="services.php" class="sl-menu-link <?=$end_exp=='services.php'?'active':''?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon fa fa-magic tx-20"></i>
             <span class="menu-item-label">Services</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="settings.php" class="sl-menu-link">
+        <a href="settings.php" class="sl-menu-link <?=$end_exp=='settings.php'?'active':''?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon fa fa-gear tx-20"></i>
             <span class="menu-item-label">Settings</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="education.php" class="sl-menu-link">
+        <a href="education.php" class="sl-menu-link <?=$end_exp=='education.php'?'active':''?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon fa fa-graduation-cap tx-20"></i>
             <span class="menu-item-label">Education</span>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <a href="portfolio.php" class="sl-menu-link <?=$end_exp=='portfolio.php'?'active':''?>">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon fa fa-camera tx-20"></i>
+            <span class="menu-item-label">Portfolio</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <a href="#" class="sl-menu-link">
