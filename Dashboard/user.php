@@ -87,8 +87,8 @@
                 </td>
                   <td>
                     <a href="user_edit.php?user_iq=<?= $value['id']?>" class="btn btn-primary">Edit</a>
-                    <a href="user_delete.php?user_iq=<?= $value['id']?>" class="btn btn-danger">Delete</a>
-                    <!-- <button data-id="<?= $value['id']?>" class="btn btn-danger UserDelete ">Delete</button> -->
+                    <!-- <a href="user_delete.php?user_iq=<?= $value['id']?>" class="btn btn-danger">Delete</a> -->
+                    <button data-id="<?= $value['id']?>" class="btn btn-danger UserDelete ">Delete</button>
                   </td>
                 </tr>
                 <?php }
@@ -97,7 +97,17 @@
               </tbody>
             </table>
           </div>
-        </div>    <!-- <script type="text/javascript">
+        </div>    
+
+      
+
+        </div><!-- sl-page-title -->
+
+      </div><!-- sl-pagebody -->
+    </div><!-- sl-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+          <script type="text/javascript">
       $('.UserDelete').click(function(){
         let  id=$(this).attr("data-id");
 
@@ -126,13 +136,7 @@
 
       })
       
-    </script> -->
-
-        </div><!-- sl-page-title -->
-
-      </div><!-- sl-pagebody -->
-    </div><!-- sl-mainpanel -->
-    <!-- ########## END: MAIN PANEL ########## -->
+    </script>
 
     <?php
     require('inc/footer.php');

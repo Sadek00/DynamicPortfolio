@@ -12,6 +12,8 @@
 
     <script src="assets/js/starlight.js"></script>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
     <script>
       $(function(){
         'use strict';
