@@ -63,6 +63,7 @@
                   <th>Category</th>
                   <th>Title</th>
                   <th>Thumbnail</th>
+                  <th>Featured</th>
                   <th>Description</th>
                   <th>Action</th>
                 </tr>
@@ -74,7 +75,8 @@
                   <td><?= ++$KEY ?></td>
                   <td><?= $value['category']?></td>
                   <td><?= $value['title']?></td>
-                  <td> <?=$value['thumbnail']?> </td>
+                  <td> <img style="border-radius: 15px;" width="60" src="uploads/portfolio/thumbnail/<?=$value['thumbnail']?>"> </td>
+                  <td> <img style="border-radius: 15px;" width="100" src="uploads/portfolio/featureImage/<?=$value['featured_image']?>"> </td>
                   <td><?= $value['description']?></td>
                   <td>
                     <a href="user_edit.php?user_id=<?= $value['id']?>" class="btn btn-primary">Edit</a>

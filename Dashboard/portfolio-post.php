@@ -2,12 +2,12 @@
 <?php 
     session_start();
     require_once '../database.php';
-    $id=$_SESSION['id'];
 
           if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $title = ysqli_real_escape_string($db,$_POST['title']);
+            $title = mysqli_real_escape_string($db,$_POST['title']);
             $category = $_POST['category'];
             $description=mysqli_real_escape_string($db,$_POST['description']);
+            $last_id=mysqli_insert_id($db);
 
             // Thumbnail image Validation Start Here.
             $thumbnail = $_FILES['thumbnail'];
@@ -19,26 +19,26 @@
 
               if($thumbnail['size'] <= 100000 )
               {
-                $newFileName = $id.".".$extention;
+                $newFileName = $last_id.".".$extention;
                 $newLocation = "uploads/portfolio/thumbnail/".$newFileName;
                 move_uploaded_file($thumbnail['tmp_name'], $newLocation);
 
-                // Header logo Insert Here
+                // Feature image Insert Here
                 $featured_image = $_FILES['featured_image'];
-                $logoExp=explode('.',$headerLogo['name']);
+                $logoExp=explode('.',$featured_image['name']);
                 $logoExten = end($logoExp);
                 $allowType = array( 'jpeg', 'jpg', 'png', 'webp', 'JPEG', 'JPG', 'PNG');
 
                 if(in_array($logoExten, $allowType))
                 {
-                  if($headerLogo['size'] < 2000000)
+                  if($featured_image['size'] < 2000000)
                   {
-                    $newfileName2 = $id.'.'.$logoExten;
-                    $newLocation2 = "uploads/settings/logo/".$newfileName2;
-                    move_uploaded_file($headerLogo['tmp_name'], $newLocation2);
+                    $newfileName2 = $last_id.'.'.$logoExten;
+                    $newLocation2 = "uploads/portfolio/featureImage/".$newfileName2;
+                    move_uploaded_file($featured_image['tmp_name'], $newLocation2);
 
                    }else{
-                    echo "Logo size Should be less than 2MB";
+                    echo "Image size Should be less than 2MB";
                     }
                 }else{
                   $_SESSION['portfolioFeature_error']= 'This type of file not allow.';
@@ -64,18 +64,18 @@
 
                       if(mysqli_query($db, $update)){
                       $_SESSION['message']= "Setting Content Add Successfully";
-                      header('location:settings.php');
+                      header('location:portfolio.php');
                       }else{
                       echo "Something Erorr ";
                       }
                     }
                     else
                     {
-                          $insert = "INSERT into portfolios (title, category, thumbnail,description) VALUES ('$title', '$category', '$newFileName', '$description')";
+                          $insert = "INSERT into portfolios (title, category, thumbnail,description,featured_image) VALUES ('$title', '$category', '$newFileName', '$description','$newfileName2')";
 
                            if(mysqli_query($db, $insert)){
                             $_SESSION['message']= "Setting Content Add Successfully";
-                            header('location:settings.php');
+                            header('location:portfolio.php');
                           }else{
                             echo "Something Erorr ";
                           }

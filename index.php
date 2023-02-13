@@ -253,8 +253,8 @@
                     </div>
                 </div>
                 <?php
-                // $portfolios = "SELECT * FROM portfolios WHERE status = 1 ";
-                // $portfoliosQuery = mysqli_query($db_connect, $portfolios);
+                $portfolios = "SELECT * FROM portfolios WHERE status = 1 ";
+                $portfoliosQuery = mysqli_query($db, $portfolios);
                 ?>
                 <div class="row">
                     <?php foreach ($portfoliosQuery as $portfolio) : ?>
@@ -262,7 +262,7 @@
                         <div class="col-lg-4 col-md-6 pitem">
                             <div class="speaker-box">
                                 <div class="speaker-thumb">
-                                    <img src="assets/images/<?php echo $portfolio['thumbnail'] ?>" alt="img">
+                                    <img src="Dashboard/uploads/portfolio/thumbnail/<?php echo $portfolio['thumbnail'] ?>" alt="img">
                                 </div>
                                 <div class="speaker-overlay">
                                     <span><?php echo $portfolio['category'] ?></span>
