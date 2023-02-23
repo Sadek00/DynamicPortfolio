@@ -393,71 +393,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="contact-form">
-                            <form action="deshboard/message-post.php" method="POST">
+                            <form action="contact-post.php" method="POST">
                                 <input class="form-control name-border" type="text" name="name" placeholder="your name *">
-                                <p class="text-color">
-                                    <?php if (isset($_SESSION['nameError'])) : ?>
-                                        <style>
-                                            .text-color {
-                                                color: red;
-                                            }
-
-                                            .name-border {
-                                                border: 1px solid red !important;
-                                            }
-                                        </style>
-                                    <?php
-                                        echo $_SESSION['nameError'];
-                                        unset($_SESSION['nameError']);
-                                    endif;
-                                    ?>
-                                </p>
+                                
                                 <input class="form-control email-border" type="email" name="email" placeholder="your email *">
-                                <p class="text-color">
-                                    <?php if (isset($_SESSION['emailError'])) : ?>
-                                        <style>
-                                            .text-color {
-                                                color: red;
-                                            }
-
-                                            .email-border {
-                                                border: 1px solid red !important;
-                                            }
-                                        </style>
-                                    <?php
-                                        echo $_SESSION['emailError'];
-                                        unset($_SESSION['emailError']);
-                                    endif;
-                                    ?>
-                                </p>
+                                
                                 <textarea class="form-control text-border" name="message" id="message" placeholder="your message *"></textarea>
-                                <p class="text-color">
-                                    <?php if (isset($_SESSION['messageError'])) : ?>
-                                        <style>
-                                            .text-color {
-                                                color: red;
-                                            }
-
-                                            .text-border {
-                                                border: 1px solid red !important;
-                                            }
-                                        </style>
-                                    <?php
-                                        echo $_SESSION['messageError'];
-                                        unset($_SESSION['messageError']);
-                                    endif;
-                                    ?>
-                                </p>
-                                <div class="message">
-                                    <?php if (isset($_SESSION['message'])) : ?>
-                                        <div class="alert alert-success alert-dismissible" role="alert">
-                                            <button class="close" data-dismiss="alert">&times;</button>
-                                            <strong><?= $_SESSION['message']; ?></strong>
-                                        </div>
-                                    <?php
-                                        unset($_SESSION['message']);
-                                    endif; ?>
-                                </div>
                                 <button type="submit" class="btn">SEND</button>
                             </form>
                         </div>

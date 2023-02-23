@@ -38,7 +38,7 @@
                 </div><!-- form-group -->
                 <button type="submit" class="btn btn-info btn-block">Sign In</button>
 
-                <div class="mg-t-60 tx-center">Not yet a member? <a href="page-signup.html" class="tx-info">Sign Up</a></div>
+                <div class="mg-t-60 tx-center">Not yet a member? <a href="signup.php" class="tx-info">Sign Up</a></div>
               </div><!-- login-wrapper -->
             </div><!-- d-flex -->
         </form>

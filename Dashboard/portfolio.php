@@ -4,8 +4,6 @@
     $select="SELECT * FROM portfolios WHERE status='1'";
     $query_user =mysqli_query($db,$select);
 ?>
-
-  <link rel="stylesheet" type="text/css" href="assets/css/starlight.css">
    <!-- ########## START: MAIN PANEL ########## -->
     <div class="sl-mainpanel">
       <nav class="breadcrumb sl-breadcrumb">

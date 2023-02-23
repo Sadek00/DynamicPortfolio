@@ -61,7 +61,7 @@
   <body>
 
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> starlight</a></div>
+    <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> Admin</a></div>
     <div class="sl-sideleft">
       <div class="input-group input-group-search">
         <input type="search" name="search" class="form-control" placeholder="Search">
@@ -96,12 +96,6 @@
             <span class="menu-item-label">Services</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="settings.php" class="sl-menu-link <?=$end_exp=='settings.php'?'active':''?>">
-          <div class="sl-menu-item">
-            <i class="menu-item-icon fa fa-gear tx-20"></i>
-            <span class="menu-item-label">Settings</span>
-          </div><!-- menu-item -->
-        </a><!-- sl-menu-link -->
         <a href="education.php" class="sl-menu-link <?=$end_exp=='education.php'?'active':''?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon fa fa-graduation-cap tx-20"></i>
@@ -112,6 +106,24 @@
           <div class="sl-menu-item">
             <i class="menu-item-icon fa fa-camera tx-20"></i>
             <span class="menu-item-label">Portfolio</span>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <a href="contact.php" class="sl-menu-link <?=$end_exp=='contact.php'?'active':''?>">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon fa fa-envelope-o tx-20"></i>
+            <span class="menu-item-label">Messages</span>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <a href="partner.php" class="sl-menu-link <?=$end_exp=='partner.php'?'active':''?>">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon fa fa-sitemap tx-20"></i>
+            <span class="menu-item-label">Partners</span>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <a href="settings.php" class="sl-menu-link <?=$end_exp=='settings.php'?'active':''?>">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon fa fa-gear tx-20"></i>
+            <span class="menu-item-label">Settings</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <a href="#" class="sl-menu-link">
@@ -247,11 +259,17 @@
     </div><!-- sl-header -->
     <!-- ########## END: HEAD PANEL ########## -->
 
+    <?php 
+      $message = "SELECT COUNT(*) as total_msg, id, name, message FROM contacts WHERE status = 1 ORDER BY id DESC";
+      $message_q = mysqli_query($db, $message);
+      $message_assoc = mysqli_fetch_assoc($message_q);
+     ?>
+
     <!-- ########## START: RIGHT PANEL ########## -->
     <div class="sl-sideright">
       <ul class="nav nav-tabs nav-fill sidebar-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" role="tab" href="#messages">Messages (2)</a>
+          <a class="nav-link active" data-toggle="tab" role="tab" href="#messages">Messages (<?=$message_assoc['total_msg']?>)</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" role="tab" href="#notifications">Notifications (8)</a>
@@ -263,61 +281,26 @@
         <div class="tab-pane pos-absolute a-0 mg-t-60 active" id="messages" role="tabpanel">
           <div class="media-list">
             <!-- loop starts here -->
-            <a href="" class="media-list-link">
+            <?php foreach ($message_q as $key => $value): ?>
+              
+            <a href="message-single.php?user_id=<?= $value['id'] ?>" class="media-list-link">
               <div class="media">
-                <img src="../img/img3.jpg" class="wd-40 rounded-circle" alt="">
+                <!-- <img src="../img/img3.jpg" class="wd-40 rounded-circle" alt=""> -->
                 <div class="media-body">
-                  <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Donna Seay</p>
+                  <p class="mg-b-0 tx-medium tx-gray-800 tx-13"><?= $value['name'] ?></p>
                   <span class="d-block tx-11 tx-gray-500">2 minutes ago</span>
-                  <p class="tx-13 mg-t-10 mg-b-0">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring.</p>
+                  <p class="tx-13 mg-t-10 mg-b-0"><?= $value['message'] ?></p>
                 </div>
               </div><!-- media -->
             </a>
             <!-- loop ends here -->
-            <a href="" class="media-list-link">
-              <div class="media">
-                <img src="../img/img4.jpg" class="wd-40 rounded-circle" alt="">
-                <div class="media-body">
-                  <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Samantha Francis</p>
-                  <span class="d-block tx-11 tx-gray-500">3 hours ago</span>
-                  <p class="tx-13 mg-t-10 mg-b-0">My entire soul, like these sweet mornings of spring.</p>
-                </div>
-              </div><!-- media -->
-            </a>
-            <a href="" class="media-list-link">
-              <div class="media">
-                <img src="../img/img7.jpg" class="wd-40 rounded-circle" alt="">
-                <div class="media-body">
-                  <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Robert Walker</p>
-                  <span class="d-block tx-11 tx-gray-500">5 hours ago</span>
-                  <p class="tx-13 mg-t-10 mg-b-0">I should be incapable of drawing a single stroke at the present moment...</p>
-                </div>
-              </div><!-- media -->
-            </a>
-            <a href="" class="media-list-link">
-              <div class="media">
-                <img src="../img/img5.jpg" class="wd-40 rounded-circle" alt="">
-                <div class="media-body">
-                  <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Larry Smith</p>
-                  <span class="d-block tx-11 tx-gray-500">Yesterday, 8:34pm</span>
-
-                  <p class="tx-13 mg-t-10 mg-b-0">When, while the lovely valley teems with vapour around me, and the meridian sun strikes...</p>
-                </div>
-              </div><!-- media -->
-            </a>
-            <a href="" class="media-list-link">
-              <div class="media">
-                <img src="../img/img3.jpg" class="wd-40 rounded-circle" alt="">
-                <div class="media-body">
-                  <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Donna Seay</p>
-                  <span class="d-block tx-11 tx-gray-500">Jan 23, 2:32am</span>
-                  <p class="tx-13 mg-t-10 mg-b-0">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring.</p>
-                </div>
-              </div><!-- media -->
-            </a>
+            <?php endforeach ?>
           </div><!-- media-list -->
           <div class="pd-15">
-            <a href="" class="btn btn-secondary btn-block bd-0 rounded-0 tx-10 tx-uppercase tx-mont tx-medium tx-spacing-2">View More Messages</a>
+            <a href="" class="btn btn-secondary btn-block bd-0 rounded-0 tx-10 tx-uppercase tx-mont tx-medium tx-spacing-2">
+            <?php if ($message_assoc['total_msg'] < 1): ?> No Messages</a>
+            <?php else: ?> View More Messages</a>
+            <?php endif ?>
           </div>
         </div><!-- #messages -->
 
