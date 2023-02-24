@@ -10,8 +10,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-<!-- Mirrored from themebeyond.com/html/kufa/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:27:43 GMT -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -56,8 +54,8 @@
                     <div class="col-xl-12">
                         <div class="main-menu">
                             <nav class="navbar navbar-expand-lg">
-                                <a href="index.php" class="navbar-brand logo-sticky-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
-                                <a href="index.php" class="navbar-brand s-logo-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
+                                <a href="Dashboard/user.php" class="navbar-brand logo-sticky-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
+                                <a href="Dashboard/user.php" class="navbar-brand s-logo-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                                     <span class="navbar-icon"></span>
                                     <span class="navbar-icon"></span>
@@ -96,16 +94,15 @@
             <div class="side-info mb-30">
                 <div class="contact-list mb-30">
                     <h4>Office Address</h4>
-                    <p>123/A, Miranda City Likaoli
-                        Prikano, Dope</p>
+                    <p><?php echo $settingAssoc['office_adress'] ?></p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Phone Number</h4>
-                    <p>+0989 7876 9865 9</p>
+                    <p><?php echo $settingAssoc['phone'] ?></p>
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Email Address</h4>
-                    <p>info@example.com</p>
+                    <p><?php echo $settingAssoc['email'] ?></p>
                 </div>
             </div>
             <div class="social-icon-right mt-20">
@@ -139,16 +136,21 @@
                                 ?>
                                 <ul>
                                     <?php foreach ($query as $icon) : ?>
-                                        <li><a href="<?php echo $icon['link'] ?>"><i class="<?php echo $icon['icon'] ?>"></i></a></li>
+                                        <li><a target="_blank" href="<?php echo $icon['link'] ?>"><i class="<?php echo $icon['icon'] ?>"></i></a></li>
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
                             <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
                         </div>
                     </div>
+                    <?php
+                    $select = " SELECT * FROM banner";
+                    $query = mysqli_query($db, $select);
+                    $assoc = mysqli_fetch_assoc($query);
+                    ?>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="banner-img text-right">
-                            <img src="assets/images/<?php echo $assoc['bannerPhoto'] ?>" alt="">
+                            <img src="Dashboard/uploads/banner/banner_photo/<?php echo $assoc['banner_photo'] ?>" alt="">
                         </div>
                     </div>
                 </div>
@@ -161,14 +163,9 @@
         <section id="about" class="about-area primary-bg pt-120 pb-120">
             <div class="container">
                 <div class="row align-items-center">
-                    <?php
-                    $select = " SELECT * FROM about";
-                    $query = mysqli_query($db_connect, $select);
-                    $assoc = mysqli_fetch_assoc($query);
-                    ?>
                     <div class="col-lg-6">
                         <div class="about-img">
-                            <img src="assets/images/<?php echo $assoc['aboutPhoto'] ?>" title="me-01" alt="me-01">
+                            <img src="Dashboard/uploads/banner/about_photo/<?php echo $assoc['about_photo'] ?>" title="me-01" alt="me-01">
                         </div>
                     </div>
                     <div class="col-lg-6 pr-90">
@@ -182,10 +179,10 @@
                         </div>
                         <!-- Education Item -->
                         <?php
-                        $selectData = "SELECT * FROM education WHERE status = 1 ORDER BY year DESC ";
+                        $selectData = "SELECT * FROM education WHERE status = 1 ORDER BY passing_year DESC ";
                         $query = mysqli_query($db, $selectData);
                         ?>
-                        <?php foreach ($query as $education) : ?>
+                        <?php foreach ($query as $key => $education) : ?>
                             <div class="education">
                                 <div class="year"><?php echo $education['passing_year'] ?></div>
                                 <div class="line"></div>
@@ -229,10 +226,7 @@
                                 <i class="<?php echo $service['icon'] ?>"></i>
                                 <h3><?php echo $service['name'] ?></h3>
                                 <p>
-                                    <?php echo $service['
-
-                                    summary'] ?>
-                                </p>
+                                    <?php echo $service['summary'] ?> </p>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -277,91 +271,22 @@
             </div>
         </section>
         <!-- services-area-end -->
-        <?php
-        // $selectData = "SELECT * FROM counter WHERE counter_status = 1 ";
-        // $dataQuery = mysqli_query($db_connect, $selectData);
-        ?>
-
-        <!-- fact-area -->
-        <section class="fact-area">
-            <div class="container">
-                <div class="fact-wrap">
-                    <div class="row justify-content-between">
-                        <?php foreach ($dataQuery as $counter) : ?>
-                            <div class="col-xl-2 col-lg-3 col-sm-6">
-                                <div class="fact-box text-center mb-50">
-                                    <div class="fact-icon">
-                                        <i class="<?php echo $counter['counter_icon'] ?>"></i>
-                                    </div>
-                                    <div class="fact-content">
-                                        <h2><span class="count"><?php echo $counter['counter_number'] ?></span></h2>
-                                        <span><?php echo $counter['counter_title'] ?></span>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- fact-area-end -->
-        <?php
-        // $selectData = "SELECT * FROM testimonial WHERE status = 1 ";
-        // $query = mysqli_query($db_connect, $selectData);
-        ?>
-
-        <!-- testimonial-area -->
-        <section class="testimonial-area primary-bg pt-115 pb-115">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section-title text-center mb-70">
-                            <span>testimonial</span>
-                            <h2>happy customer quotes</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-xl-9 col-lg-10">
-                        <div class="testimonial-active">
-                            <?php foreach ($query as $testimonial) : ?>
-                                <div class="single-testimonial text-center">
-                                    <div class="testi-avatar">
-                                        <img src="assets/images/<?php echo $testimonial['clientPhoto'] ?>" alt="img">
-                                    </div>
-                                    <div class="testi-content">
-                                        <h4><span>“</span> <?php echo $testimonial['clientComment'] ?> <span>”</span></h4>
-                                        <div class="testi-avatar-info">
-                                            <h5><?php echo $testimonial['clientName'] ?></h5>
-                                            <span><?php echo $testimonial['designation'] ?></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- testimonial-area-end -->
 
         <?php
 
-        // $selectData = " SELECT * FROM partner WHERE status = 1";
-        // $dataQuery = mysqli_query($db_connect, $selectData);
+        $selectData = " SELECT * FROM partner WHERE status = 1";
+        $dataQuery = mysqli_query($db, $selectData);
 
         ?>
 
         <!-- brand-area -->
-        <div class="barnd-area pt-100 pb-100">
-            <div class="container">
-                <div class="row brand-active">
+        <div class="barnd-area pt-100 pb-100 section-title text-center">
+                    <span class="section-title text-center mb-70">Our Partners</span>
+                <div class="row brand-active">   
                     <?php foreach ($dataQuery as $partners) : ?>
                         <div class="col-xl-2">
                             <div class="single-brand">
-                                <img src="assets/images/<?php echo $partners['brand_logo'] ?>" alt="img">
+                                <img src="Dashboard/uploads/partners/<?php echo $partners['logo'] ?>" alt="img">
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -384,7 +309,7 @@
                             <h5>OFFICE IN <span>BANGLADESH</span></h5>
                             <div class="contact-list">
                                 <ul>
-                                    <li><i class="fas fa-map-marker"></i><span>Address :</span><?php echo $sttingAssoc['office_adress'] ?></li>
+                                    <li><i class="fas fa-map-marker"></i><span>Address :</span><?php echo $settingAssoc['office_adress'] ?></li>
                                     <li><i class="fas fa-headphones"></i><span>Phone :</span><?php echo $settingAssoc['phone'] ?></li>
                                     <li><i class="fas fa-globe-asia"></i><span>e-mail :</span><?php echo $settingAssoc['email'] ?></li>
                                 </ul>
