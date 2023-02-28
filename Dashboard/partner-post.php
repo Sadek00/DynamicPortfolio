@@ -5,12 +5,9 @@
 
           if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $name = mysqli_real_escape_string($db,$_POST['name']);
-            $last_id=mysqli_insert_id($db);
+            $last_id=rand();
 
-            // Insert into database
-             $insert = "INSERT into partner (name) VALUES ('$name')";
-             $query = mysqli_query($db, $insert);
-
+            
             // Logo image Validation Start Here.
             $logo = $_FILES['logo'];
             $exp=explode('.', $logo['name']);
@@ -25,9 +22,10 @@
                 $newLocation = "uploads/partners/".$logoName;
                 move_uploaded_file($logo['tmp_name'], $newLocation);
 
-                // Insert the Logo into database
-                $update = "UPDATE partner SET logo='$logoName'";
-                if(mysqli_query($db, $update)){
+                // Insert into database
+             $insert = "INSERT into partner (name,logo) VALUES ('$name','$logoName')";
+
+                if(mysqli_query($db, $insert)){
                       $_SESSION['update']= "Setting Content Add Successfully";
                       header('location:partner.php');
                       }else{

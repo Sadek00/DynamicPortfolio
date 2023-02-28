@@ -132,7 +132,7 @@
             <span class="menu-item-label">Settings</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-        <a href="../index.php" class="sl-menu-link <?=$end_exp=='../index.php'?'active':''?>">
+        <a target="_blank" href="../index.php" class="sl-menu-link <?=$end_exp=='../index.php'?'active':''?>">
           <div class="sl-menu-item">
             <i class="menu-item-icon fa fa-globe tx-20"></i>
             <span class="menu-item-label">Home</span>

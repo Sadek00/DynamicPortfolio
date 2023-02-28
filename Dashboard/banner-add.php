@@ -19,6 +19,14 @@
             <div class="row mg-b-25">
               <div class="col-lg-6">
                 <div class="form-group">
+                  <label class="form-control-label">Banner Name <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="banner_name" required>
+                </div>
+              </div><!-- col-6 -->
+            </div>
+            <div class="row mg-b-25">
+              <div class="col-lg-6">
+                <div class="form-group">
                   <label class="form-control-label">Banner Photo: <span class="tx-danger">*</span></label>
                   <input class="form-control" type="file" name="banner_photo" required>
                 </div>

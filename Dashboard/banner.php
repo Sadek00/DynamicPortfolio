@@ -58,6 +58,7 @@
               <thead>
                 <tr>
                   <th>Sl No</th>
+                  <th>Name</th>
                   <th>Banner Photo</th>
                   <th>About Photo</th>
                   <th>Action</th>
@@ -68,6 +69,7 @@
                 foreach ($query_user as $KEY=>$value) { ?>
                   <tr>
                   <td><?= ++$KEY ?></td>
+                  <td><?= $value['name'] ?></td>
                   <td><img style="border-radius: 15px;" width="60" src="uploads/banner/banner_photo/<?=$value['banner_photo']?>"></td>
                   <td> <img style="border-radius: 15px;" width="60" src="uploads/banner/about_photo/<?=$value['about_photo']?>"> </td>
                   <td>

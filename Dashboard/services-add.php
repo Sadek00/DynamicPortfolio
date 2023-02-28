@@ -28,7 +28,7 @@
                   <label class="form-control-label">Icon: <span class="tx-danger">*</span></label>
                   <select name="icon" class="form-control select2" data-placeholder="Select an icon">
                     <option label="Select Icon"></option>
-                    <option value="fas fa-react">Creative Design</option>
+                    <option value="fab fa-react">Creative Design</option>
                     <option value="fas fa-pen-nib">Graphic</option>
                     <option value="fas fa-magic">Magic Icon</option>
                     <option value="fas fa-desktop">Desktop Icon</option>

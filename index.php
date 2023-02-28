@@ -280,9 +280,9 @@
         ?>
 
         <!-- brand-area -->
-        <div class="barnd-area pt-100 pb-100 section-title text-center">
-                    <span class="section-title text-center mb-70">Our Partners</span>
-                <div class="row brand-active">   
+        <div class="barnd-area pt-100 pb-100">
+            <div class="container">
+                <div class="row brand-active">
                     <?php foreach ($dataQuery as $partners) : ?>
                         <div class="col-xl-2">
                             <div class="single-brand">

@@ -6,6 +6,7 @@
           if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $last_id=$_SESSION['id'];
+            $name = $_POST['name'];
 
             // Banner image Validation Start Here.
             $banner = $_FILES['banner_photo'];
@@ -22,7 +23,7 @@
                 move_uploaded_file($banner['tmp_name'], $newLocation);
 
                  // Insert into database
-             $insert = "INSERT into banner (banner_photo) VALUES ('$bannerName')";
+             $insert = "INSERT into banner (name,banner_photo) VALUES ('$name','$bannerName')";
              $query = mysqli_query($db, $insert);
 
               }else{
