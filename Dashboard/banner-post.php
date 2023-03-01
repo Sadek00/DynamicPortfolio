@@ -6,7 +6,7 @@
           if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $last_id=$_SESSION['id'];
-            $name = $_POST['name'];
+            $name = $_POST['banner_name'];
 
             // Banner image Validation Start Here.
             $banner = $_FILES['banner_photo'];

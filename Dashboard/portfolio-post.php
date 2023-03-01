@@ -7,7 +7,7 @@
             $title = mysqli_real_escape_string($db,$_POST['title']);
             $category = $_POST['category'];
             $description=mysqli_real_escape_string($db,$_POST['description']);
-            $last_id=mysqli_insert_id($db);
+            $last_id=rand();
 
             // Thumbnail image Validation Start Here.
             $thumbnail = $_FILES['thumbnail'];

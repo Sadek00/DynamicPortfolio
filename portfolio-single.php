@@ -58,8 +58,8 @@ $settingAssoc = mysqli_fetch_assoc($settingQuery);
           <div class="col-xl-12">
             <div class="main-menu">
               <nav class="navbar navbar-expand-lg">
-                <a href="index.php" class="navbar-brand logo-sticky-none"><img src="assets/images/<?php echo $settingAssoc['headerLogo']?>" alt="Logo"></a>
-                <a href="index.php" class="navbar-brand s-logo-none"><img src="assets/images/<?php echo $settingAssoc['headerLogo']?>" alt="Logo"></a>
+                <a target="_blank" href="index.php" class="navbar-brand logo-sticky-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo']?>" alt="Logo"></a>
+                <a href="index.php" class="navbar-brand s-logo-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo']?>" alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                   <span class="navbar-icon"></span>
                   <span class="navbar-icon"></span>
@@ -152,7 +152,7 @@ $settingAssoc = mysqli_fetch_assoc($settingQuery);
           <div class="col-xl-9 col-lg-10">
             <div class="single-blog-list">
               <div class="blog-list-thumb mb-35">
-                <img src="assets/images/<?php echo $portfolioAssoc['featured_image'] ?>" alt="img">
+                <img src="Dashboard/uploads/portfolio/featureImage/<?php echo $portfolioAssoc['featured_image'] ?>" alt="img">
               </div>
               <div class="blog-list-content blog-details-content portfolio-details-content">
                 <h2><?php echo $portfolioAssoc['title'] ?></h2>

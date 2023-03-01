@@ -54,8 +54,8 @@
                     <div class="col-xl-12">
                         <div class="main-menu">
                             <nav class="navbar navbar-expand-lg">
-                                <a href="Dashboard/user.php" class="navbar-brand logo-sticky-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
-                                <a href="Dashboard/user.php" class="navbar-brand s-logo-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
+                                <a target="_blank" href="Dashboard/user.php" class="navbar-brand logo-sticky-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
+                                <a target="_blank" href="Dashboard/user.php" class="navbar-brand s-logo-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                                     <span class="navbar-icon"></span>
                                     <span class="navbar-icon"></span>
@@ -121,13 +121,18 @@
     <main>       
 
         <!-- banner-area -->
+        <?php
+        $select = " SELECT * FROM banner";
+        $query = mysqli_query($db, $select);
+        $assoc = mysqli_fetch_assoc($query);
+        ?>
         <section id="home" class="banner-area banner-bg fix">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-7 col-lg-6">
                         <div class="banner-content">
                             <h6 class="wow fadeInUp" data-wow-delay="0.2s">Hello!</h6>
-                            <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?php echo"I'M".$_SESSION['name'] ?></h2>
+                            <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?php echo"I'M ".$assoc['name'] ?></h2>
                             <p class="wow fadeInUp" data-wow-delay="0.6s"><?php echo $settingAssoc['tagline'] ?></p>
                             <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                 <?php
@@ -143,11 +148,6 @@
                             <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
                         </div>
                     </div>
-                    <?php
-                    $select = " SELECT * FROM banner";
-                    $query = mysqli_query($db, $select);
-                    $assoc = mysqli_fetch_assoc($query);
-                    ?>
                     <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                         <div class="banner-img text-right">
                             <img src="Dashboard/uploads/banner/banner_photo/<?php echo $assoc['banner_photo'] ?>" alt="">
@@ -282,6 +282,7 @@
         <!-- brand-area -->
         <div class="barnd-area pt-100 pb-100">
             <div class="container">
+                <div  class="section-title text-center"><span>our partners</span></div>
                 <div class="row brand-active">
                     <?php foreach ($dataQuery as $partners) : ?>
                         <div class="col-xl-2">
@@ -343,7 +344,7 @@
                 <div class="row align-items-center">
                     <div class="col-12">
                         <div class="copyright-text text-center">
-                            <p><?php echo $settingAssoc['footerText'] ?></p>
+                            <p>Copyright© <span><?php echo $settingAssoc['footerText']?></span> | All Rights Reserved</p>
                         </div>
                     </div>
                 </div>

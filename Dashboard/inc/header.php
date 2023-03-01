@@ -203,7 +203,7 @@
         <div class="tab-pane pos-absolute a-0 mg-t-60 active" id="messages" role="tabpanel">
           <div class="media-list">
             <!-- loop starts here -->
-            <?php foreach ($message_q as $key => $value): ?>
+            <?php foreach ($message_q as $value): ?>
               
             <a href="message-single.php?user_id=<?= $value['id'] ?>" class="media-list-link">
               <div class="media">
@@ -216,7 +216,7 @@
               </div><!-- media -->
             </a>
             <!-- loop ends here -->
-            <?php endforeach ?>
+            <?php endforeach; ?>
           </div><!-- media-list -->
           <div class="pd-15">
             <a href="" class="btn btn-secondary btn-block bd-0 rounded-0 tx-10 tx-uppercase tx-mont tx-medium tx-spacing-2">
