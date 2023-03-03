@@ -1,4 +1,4 @@
-<?php 
+insert<?php 
 
     include('inc/header.php');
     $select="SELECT * FROM services WHERE status='active'";
@@ -41,12 +41,12 @@
 
                       <?php
 
-                      if (isset($_SESSION['Update'])) {?>
+                      if (isset($_SESSION['insert'])) {?>
                         <div class="alert alert-success">
                           <span>
                             <?php
-                        echo $_SESSION['Update'];
-                        unset($_SESSION['Update']);
+                        echo $_SESSION['insert'];
+                        unset($_SESSION['insert']);
                         ?>
                           </span>
                         </div>

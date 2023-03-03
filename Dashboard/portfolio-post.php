@@ -63,7 +63,7 @@
                       $update = "UPDATE portfolios  SET title='$title', category='$category', thumbnail='$newFileName', description='$description' WHERE id=$edit_id";
 
                       if(mysqli_query($db, $update)){
-                      $_SESSION['message']= "Setting Content Add Successfully";
+                      $_SESSION['update']= "Setting Content Add Successfully";
                       header('location:portfolio.php');
                       }else{
                       echo "Something Erorr ";
@@ -74,7 +74,7 @@
                           $insert = "INSERT into portfolios (title, category, thumbnail,description,featured_image) VALUES ('$title', '$category', '$newFileName', '$description','$newfileName2')";
 
                            if(mysqli_query($db, $insert)){
-                            $_SESSION['message']= "Setting Content Add Successfully";
+                            $_SESSION['update']= "Setting Content Add Successfully";
                             header('location:portfolio.php');
                           }else{
                             echo "Something Erorr ";
