@@ -1,7 +1,7 @@
 <?php 
 
 include('inc/header.php'); 
-require_once '../database.php';
+require_once 'inc/database.php';
 // Total Number of User
 $selectUser = "SELECT COUNT(*) as total FROM user_form WHERE status = 1";
 $queryUser = mysqli_query($db, $selectUser);
@@ -13,7 +13,7 @@ $queryPortfolios = mysqli_query($db, $selectPortfolios);
 $portfoliosAssoc = mysqli_fetch_assoc($queryPortfolios);
 
 // Total Number of Services
-$selectServices = "SELECT COUNT(*) as total FROM services WHERE services_status = 1";
+$selectServices = "SELECT COUNT(*) as total FROM services WHERE status = 'active'";
 $queryServices = mysqli_query($db, $selectServices);
 $servicesAssoc = mysqli_fetch_assoc($queryServices);
 
@@ -29,7 +29,7 @@ $queryEducation = mysqli_query($db, $selectEducation);
 $educationAssoc = mysqli_fetch_assoc($queryEducation);
 
 // Socail Media Link
-$socialmedia = "SELECT COUNT(*) as total FROM socials WHERE status = 1";
+$socialmedia = "SELECT COUNT(*) as total FROM socials WHERE status = 'active'";
 $querySocialmedia = mysqli_query($db, $socialmedia);
 $socialmediaAssoc = mysqli_fetch_assoc($querySocialmedia);
 
@@ -101,28 +101,6 @@ $socialmediaAssoc = mysqli_fetch_assoc($querySocialmedia);
 
         <div class="row row-sm mg-t-20">
 
-          <div class="col-sm-6 col-xl-3">
-            <div class="card pd-20 pd-sm-25">
-              <div class="d-flex align-items-center">
-               
-                <div class="mg-l-15">
-                  <p class="tx-uppercase tx-11 tx-spacing-1 tx-medium tx-gray-600 mg-b-8">Total Counter</p>
-                  <h3 class="tx-bold tx-lato tx-inverse mg-b-0"><?= $counterAssoc['total']?></h3>
-                </div>
-              </div>
-            </div><!-- card -->
-          </div><!-- col-3 -->
-          <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
-            <div class="card pd-20 pd-sm-25 bg-primary">
-              <div class="d-flex align-items-center">
-                
-                <div class="mg-l-15">
-                  <p class="tx-uppercase tx-11 tx-spacing-1 tx-medium tx-white-5 mg-b-8">Total Testimonial</p>
-                  <h3 class="tx-bold tx-lato tx-white mg-b-0"><?= $testimonailAssoc['total']?></h3>
-                </div>
-              </div>
-            </div><!-- card -->
-          </div><!-- col-3 -->
           <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
             <div class="card pd-20 pd-sm-25 bg-info">
               <div class="d-flex align-items-center">

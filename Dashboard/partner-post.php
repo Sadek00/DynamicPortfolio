@@ -26,7 +26,7 @@
              $insert = "INSERT into partner (name,logo) VALUES ('$name','$logoName')";
 
                 if(mysqli_query($db, $insert)){
-                      $_SESSION['update']= "Setting Content Add Successfully";
+                      $_SESSION['insert']= "Setting Content Add Successfully";
                       header('location:partner.php');
                       }else{
                       echo "Something Erorr ";

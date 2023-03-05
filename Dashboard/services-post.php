@@ -9,7 +9,7 @@
 	$insert_user=mysqli_query($db,$insert);
 
 	if ($insert_user) {
-		$_SESSION['Update'] = 'Insert Succesfully';
+		$_SESSION['insert'] = 'Insert Succesfully';
 		header('location: services.php');
 	}
 
