@@ -3,6 +3,7 @@
     session_start();
     require_once '../database.php';
     $id=$_SESSION['id'];
+    $rand = rand(1,100);
 
           if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $websiteTitle = $_POST['websiteTitle'];
@@ -41,7 +42,7 @@
 
               if($favIcon['size'] <= 100000 )
               {
-                $newFileName = $id.".".$extention;
+                $newFileName = $rand.".".$extention;
                 $newLocation = "uploads/settings/favicon/".$newFileName;
                 move_uploaded_file($favIcon['tmp_name'], $newLocation);
 
@@ -55,7 +56,7 @@
                 {
                   if($headerLogo['size'] < 2000000)
                   {
-                    $newfileName2 = $id.'.'.$logoExten;
+                    $newfileName2 = $rand.'.'.$logoExten;
                     $newLocation2 = "uploads/settings/logo/".$newfileName2;
                     move_uploaded_file($headerLogo['tmp_name'], $newLocation2);
 

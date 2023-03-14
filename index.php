@@ -54,8 +54,8 @@
                     <div class="col-xl-12">
                         <div class="main-menu">
                             <nav class="navbar navbar-expand-lg">
-                                <a target="_blank" href="Dashboard/user.php" class="navbar-brand logo-sticky-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
-                                <a target="_blank" href="Dashboard/user.php" class="navbar-brand s-logo-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
+                                <a target="_blank" href="Dashboard/dashboard.php" class="navbar-brand logo-sticky-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
+                                <a target="_blank" href="Dashboard/dashboard.php" class="navbar-brand s-logo-none"><img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="Logo"></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                                     <span class="navbar-icon"></span>
                                     <span class="navbar-icon"></span>
@@ -87,8 +87,8 @@
                 </button>
             </div>
             <div class="logo-side mb-30">
-                <a href="index-2.html">
-                    <img src="assets/img/logo/logo.png" alt="" />
+                <a href="Dashboard/dashboard.php">
+                    <img src="Dashboard/uploads/settings/logo/<?php echo $settingAssoc['headerLogo'] ?>" alt="" />
                 </a>
             </div>
             <div class="side-info mb-30">
@@ -155,7 +155,7 @@
                     </div>
                 </div>
             </div>
-            <div class="banner-shape"><img src="assets/img/shape/dot_circle.png" class="rotateme" alt="img"></div>
+            <div class="banner-shape"><img src="Dashboard/uploads/Background/dot_circle.png" class="rotateme" alt="img"></div>
         </section>
         <!-- banner-area-end -->
 

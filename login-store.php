@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
 		$_SESSION['id']=$assoc['id'];
 		$_SESSION['name']=$assoc['name'];
 		$_SESSION['password']=$hash;
-		header('location:Dashboard/user.php');
+		header('location:Dashboard/dashboard.php');
 
 	}
 	else{

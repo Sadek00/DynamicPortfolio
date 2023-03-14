@@ -61,7 +61,13 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
      	$hash=password_hash($password, PASSWORD_DEFAULT);
      	$insert="INSERT INTO user_form(name,email,password)Values('$name','$email','$hash')";
      	$query=mysqli_query($db,$insert);
-			header('location:./Dashboard/dashboard.php');
+     	$select = "SELECT * FROM user_form WHERE email='$email'";
+     	$queryA=mysqli_query($db,$select);
+     	$assoc=mysqli_fetch_assoc($queryA);
+     	$_SESSION['email']=$assoc['email'];
+			$_SESSION['id']=$assoc['id'];
+			$_SESSION['name']=$assoc['name'];
+			header('location:Dashboard/dashboard.php');
 	}
 	
 }	
